@@ -26,6 +26,26 @@ export default function AuthUI() {
           }
         }}
         theme="dark"
+        localization={{
+          variables: {
+            sign_in: {
+              email_label: 'Ingresa tu direccion de email',
+              email_input_placeholder: 'Email',
+              password_label: 'Tu contraseña',
+              password_input_placeholder: 'Contraseña',
+              button_label: 'Ingresar',
+              link_text: 'Ya tiene una cuenta? Ingresa',
+            },
+            sign_up: {
+              email_label: 'Ingresa tu direccion de email',
+              email_input_placeholder: 'Email',
+              password_label: 'Tu contraseña',
+              password_input_placeholder: 'Contraseña',
+              button_label: 'Registrarse',
+              link_text: 'No tiene una cuenta? Registrate!',
+            }
+          },
+        }}
       />
     </div>
   );

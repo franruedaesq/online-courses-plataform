@@ -68,7 +68,7 @@ export default async function Account() {
       <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
         <div className="sm:align-center sm:flex sm:flex-col">
           <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-            Account
+            Cuenta
           </h1>
           <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
             We partnered with Stripe for a simplified billing.
@@ -89,7 +89,7 @@ export default async function Account() {
             {subscription ? (
               `${subscriptionPrice}/${subscription?.prices?.interval}`
             ) : (
-              <Link href="/">Choose your plan</Link>
+              <Link href="/">Elieg tu plan</Link>
             )}
           </div>
         </Card>
@@ -106,7 +106,7 @@ export default async function Account() {
                 disabled={true}
               >
                 {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
-                Update Name
+                Modifcar el nombre
               </Button>
             </div>
           }
@@ -125,12 +125,12 @@ export default async function Account() {
           </div>
         </Card>
         <Card
-          title="Your Email"
-          description="Please enter the email address you want to use to login."
+          title="Tu email"
+          description="Por favor ingresa la direccion de email que quieres usar para registrarte."
           footer={
             <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
               <p className="pb-4 sm:pb-0">
-                We will email you to verify the change.
+                Te enviaremos un mail para verificar el cammbio.
               </p>
               <Button
                 variant="slim"
