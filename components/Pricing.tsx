@@ -75,44 +75,50 @@ export default function Pricing({
     }
   };
 
-  if (!products.length)
-    return (
-      <section className="bg-black">
-        <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8 flex flex-col justify-center items-center gap-8">
-          <p className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-            Aprende a modelar con{' '}
-            <p className="text-pink-500">Procelana fría.</p>
-          </p>
-          <button className="w-1/3  hover:bg-pink-500 text-pink-500 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent rounded">
-            EXPLORA LAS AULAS VIRTUALES
-          </button>
-        </div>
-        <Box maxWidth="72rem" display="flex" flexDirection="row" flexWrap="wrap" m="0 auto" p={3} gap="16px">
-          <VideoCardVertical
-            imageUrl="/caroline2.jpg"
-            title="Caroline"
-            price='40'
-            description="En éste curso te voy a enseñar a crear una muñeca totalmente posicionable!Modelaremos varias expresiones y confeccionaremos 3 vestuarios diferentes para que puedas jugar con la ambientación en tus fotos."
-          />
-          <VideoCardVertical
-            imageUrl="/jasmin.webp"
-            title="Jasmin"
-            price='40'
-            description="Aprenderás a trabajar con Porcelana fria: Tallado y estructura adecuada- Modelado de rostro y manos femeninas. Y principalmente todas mis técnicas para forrar y lograr un trabajo SUPER PROLIJO ✨"
-          />
-          <VideoCardVertical
-            imageUrl="/mafalda.webp"
-            title="Mafalda"
-            price='40'
-            description="Vamos a modelara en 20cm, usaremos telgopor pero tampoco tanto, asi que no se asusten!Esta todo explicado de cero y como le repito a mis alumnas CUALQUIERA PUEDE APRENDER!"
-          />
-          <VideoCardVertical
-            imageUrl="/dragones.webp"
-            title="Dragones"
-            price='40'
-            description="En mi nueva Aula virtual te enseñaré a modelar a éstos 5 personajes de un forma rápida y sencilla."
-          />
-        </Box>
-      </section>
-    );
+  return (
+    <section className="bg-black">
+      <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8 flex flex-col justify-center items-center gap-8">
+        <p className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+          Aprende a modelar con <p className="text-pink-500">Procelana fría.</p>
+        </p>
+        <button className="w-1/3  hover:bg-pink-500 text-pink-500 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent rounded">
+          EXPLORA LAS AULAS VIRTUALES
+        </button>
+      </div>
+      <Box
+        maxWidth="72rem"
+        display="flex"
+        flexDirection="row"
+        flexWrap="wrap"
+        m="0 auto"
+        p={3}
+        gap="16px"
+      >
+        <VideoCardVertical
+          imageUrl="/caroline2.jpg"
+          title="Caroline"
+          price="40"
+          description="En éste curso te voy a enseñar a crear una muñeca totalmente posicionable!Modelaremos varias expresiones y confeccionaremos 3 vestuarios diferentes para que puedas jugar con la ambientación en tus fotos."
+        />
+        <VideoCardVertical
+          imageUrl="/jasmin.webp"
+          title="Jasmin"
+          price="40"
+          description="Aprenderás a trabajar con Porcelana fria: Tallado y estructura adecuada- Modelado de rostro y manos femeninas. Y principalmente todas mis técnicas para forrar y lograr un trabajo SUPER PROLIJO ✨"
+        />
+        <VideoCardVertical
+          imageUrl="/mafalda.webp"
+          title="Mafalda"
+          price="40"
+          description="Vamos a modelara en 20cm, usaremos telgopor pero tampoco tanto, asi que no se asusten!Esta todo explicado de cero y como le repito a mis alumnas CUALQUIERA PUEDE APRENDER!"
+        />
+        <VideoCardVertical
+          imageUrl="/dragones.webp"
+          title="Dragones"
+          price="40"
+          description="En mi nueva Aula virtual te enseñaré a modelar a éstos 5 personajes de un forma rápida y sencilla."
+        />
+      </Box>
+    </section>
+  );
 }
