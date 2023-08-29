@@ -23,7 +23,7 @@ export default function VideoCard({
 }: VideoCardProp) {
   const matches = useMediaQuery('(max-width:768px)');
   return (
-    <Card sx={{ display: 'flex', flexDirection: matches? 'column-reverse' : 'unset' }}>
+    <Card sx={{ display: 'flex', flexDirection: matches? 'column-reverse' : 'unset', maxWidth:980, margin: '0 auto' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', padding: 2 }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
