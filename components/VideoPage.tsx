@@ -1,12 +1,13 @@
 'use client';
 
 import { fetchVideos } from '@/utils/api/videos';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import { useState, useEffect } from 'react';
 import VideoCard from './VideoCard';
 import { useSearchParams } from 'next/navigation';
 
 export default function VideoPage() {
+    const matches = useMediaQuery('(max-width:768px)');
   const searchParams = useSearchParams();
 
   const course_id = searchParams.get('courseId');
@@ -22,7 +23,7 @@ export default function VideoPage() {
   }, []);
 
   return (
-    <Box p={4}>
+    <Box p={matches ? 0 : 4}>
       {videos &&
         videos.map((video) => (
           <VideoCard
