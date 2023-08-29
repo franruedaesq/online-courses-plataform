@@ -23,7 +23,7 @@ export default function VideoPage() {
   }, []);
 
   return (
-    <Box p={matches ? 0 : 4}>
+    <Box p={0}>
       {videos &&
         videos.map((video) => (
           <VideoCard

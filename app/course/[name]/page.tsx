@@ -5,7 +5,7 @@ import { Box} from "@mui/material";
 export default async function Course() {
 
   return (
-   <Box p={4}>
+   <Box p={2}>
     <VideoPage/>
    </Box>
   );
