@@ -4,18 +4,22 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import { useRouter } from 'next/navigation';
 
 interface AulaCardVerticalProps {
   imageUrl: string;
   title: string;
   price: string;
   description: string;
-
+  url: string;
+  courseId: string;
 }
 
-export default function VideoCardVertical({ imageUrl, title, price, description }: AulaCardVerticalProps) {
+export default function AulaCardVertical({ imageUrl, title, price, description, url, courseId }: AulaCardVerticalProps) {
+  const router = useRouter()
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, display:"flex", flexDirection:'column', justifyContent:'space-between' }} onClick={() => router.push(`/course/${url}?courseId=${courseId}`)}>
       <CardActionArea>
         <CardMedia
           component="img"

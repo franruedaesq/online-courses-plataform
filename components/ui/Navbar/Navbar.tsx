@@ -23,7 +23,7 @@ export default async function Navbar() {
             <Link href="/" className={s.logo} aria-label="Logo">
               <Logo />
             </Link>
-            <nav className="hidden ml-6 space-x-2 lg:block">
+            <nav className=" ml-6 space-x-2 lg:block">
               <Link href="/" className={s.link}>
                 Lucas Guardia
               </Link>
@@ -39,7 +39,7 @@ export default async function Navbar() {
               <SignOutButton />
             ) : (
               <Link href="/signin" className={s.link}>
-                Registrarse
+                Ingresar
               </Link>
             )}
           </div>

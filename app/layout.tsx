@@ -5,8 +5,8 @@ import { PropsWithChildren } from 'react';
 import 'styles/main.css';
 
 const meta = {
-  title: 'Next.js Subscription Starter',
-  description: 'Brought to you by Vercel, Stripe, and Supabase.',
+  title: 'Lucas Guardia',
+  description: 'Crea usando porcelana fria.',
   cardImage: '/og.png',
   robots: 'follow, index',
   favicon: '/favicon.ico',
