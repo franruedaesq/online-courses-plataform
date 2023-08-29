@@ -4,7 +4,8 @@ import {
   CardContent,
   Typography,
   IconButton,
-  CardMedia
+  CardMedia,
+  useMediaQuery
 } from '@mui/material';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
@@ -20,8 +21,9 @@ export default function VideoCard({
   description,
   thumbnail
 }: VideoCardProp) {
+  const matches = useMediaQuery('(max-width:768px)');
   return (
-    <Card sx={{ display: 'flex' }}>
+    <Card sx={{ display: 'flex', flexDirection: matches? 'column-reverse' : 'unset' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', padding: 2 }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
@@ -40,7 +42,6 @@ export default function VideoCard({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            pl: 1,
             pb: 1
           }}
         >
@@ -59,7 +60,7 @@ export default function VideoCard({
       </Box>
       <CardMedia
         component="img"
-        sx={{ width: 250 }}
+        sx={{ width: matches? "100%" : 250 }}
         image={thumbnail}
         alt="video thumbnail"
       />

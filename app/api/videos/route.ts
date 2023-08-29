@@ -11,12 +11,10 @@ export async function GET(req: NextRequest, res: NextResponse) {
   }
 
   try {
-    console.log("course_id", course_id)
     const { data: courses, error } = await supabaseAdmin
       .from('videos')
       .select("*")
       .eq('course_id', course_id)
-    console.log(error)
     if (error) throw error;
 
     return NextResponse.json( courses )
