@@ -1,38 +1,30 @@
 'use client';
 
-import { fetchVideos } from '@/utils/api/videos';
-import { Box, useMediaQuery } from '@mui/material';
-import { useState, useEffect } from 'react';
-import VideoCard from './VideoCard';
-import { useSearchParams } from 'next/navigation';
+import { fetchVideo } from "@/utils/api/video";
+import { Box } from "@mui/material";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 
 export default function VideoPage() {
-    const matches = useMediaQuery('(max-width:768px)');
   const searchParams = useSearchParams();
+  const video_id = searchParams.get('videoId');
 
-  const course_id = searchParams.get('courseId');
-  const [videos, setVideos] = useState<CourseVideo[]>([]);
+  const [video, setVideo] = useState<CourseVideo[]>();
 
   useEffect(() => {
     async function loadData() {
-      const fetchedVideos: CourseVideo[] = await fetchVideos(course_id);
-      setVideos(fetchedVideos);
+      const fetchedVideo: CourseVideo[] = await fetchVideo(video_id);
+      console.log(fetchedVideo);
+      setVideo(fetchedVideo);
     }
+      loadData();
+    }, []);
 
-    loadData();
-  }, []);
+    console.log(video?.[0].video_link)
 
-  return (
-    <Box p={0}>
-      {videos &&
-        videos.map((video) => (
-          <VideoCard
-            title={video.title}
-            description={video.description}
-            thumbnail={video.thumbnail}
-            key={video.id}
-          />
-        ))}
-    </Box>
-  );
+  return <Box width="100%" height="540px">
+    <ReactPlayer controls width='100%' height='100%'
+      url={video?.[0]?.video_link} />
+  </Box>
 }

@@ -1,4 +1,4 @@
-import VideoPage from "@/components/VideoPage";
+import CoursePage from "@/components/CoursePage";
 import { Box} from "@mui/material";
 
 
@@ -6,7 +6,7 @@ export default async function Course() {
 
   return (
    <Box p={2}>
-    <VideoPage/>
+    <CoursePage/>
    </Box>
   );
 }
