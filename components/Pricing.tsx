@@ -14,6 +14,7 @@ import AulaCardVertical from './AulaCardVertical';
 import { supabaseAdmin } from '@/utils/supabase-admin';
 import { fetchCourses } from '@/utils/api/courses';
 import { Course } from '@/utils/types/courses';
+import { FacebookButton } from './FacebookButton';
 
 type Subscription = Database['public']['Tables']['subscriptions']['Row'];
 type Product = Database['public']['Tables']['products']['Row'];

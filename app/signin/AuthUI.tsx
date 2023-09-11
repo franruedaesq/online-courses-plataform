@@ -1,6 +1,7 @@
 'use client';
 
 import { useSupabase } from '@/app/supabase-provider';
+import { FacebookButton } from '@/components/FacebookButton';
 import { getURL } from '@/utils/helpers';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
@@ -9,10 +10,11 @@ export default function AuthUI() {
   const { supabase } = useSupabase();
   return (
     <div className="flex flex-col space-y-4">
-      <Auth
+      <FacebookButton/>
+      {/* <Auth
         supabaseClient={supabase}
-        providers={['github']}
-        redirectTo={`${getURL()}/auth/callback`}
+        providers={['facebook']}
+        redirectTo={`https://llvycgsxqpebqcbggyba.supabase.co/auth/v1/callback`}
         magicLink={true}
         appearance={{
           theme: ThemeSupa,
@@ -46,7 +48,7 @@ export default function AuthUI() {
             }
           },
         }}
-      />
+      /> */}
     </div>
   );
 }
