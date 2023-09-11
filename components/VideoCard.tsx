@@ -10,6 +10,8 @@ import {
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image'
+import { ComenzarButton } from './ComenzarButton';
 
 interface VideoCardProp {
   title: string;
@@ -24,11 +26,12 @@ export default function VideoCard({
   thumbnail,
   path,
 }: VideoCardProp) {
-  const matches = useMediaQuery('(max-width:768px)');
-  const router = useRouter()
-
   return (
-    <Card sx={{ display: 'flex', flexDirection: matches ? 'column-reverse' : 'unset', maxWidth: 980, margin: '0 auto' }}>
+    <Card sx={{
+      display: 'grid', gridTemplateColumns: "auto 250px", maxWidth: 980, margin: '0 auto', '@media (max-width: 768px)': {
+        gridTemplateColumns: 'revert',
+      }
+    }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', padding: 2 }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
@@ -57,18 +60,29 @@ export default function VideoCard({
             <DownloadForOfflineIcon sx={{ marginRight: 1 }} />{' '}
             <Typography>Descarga material</Typography>
           </IconButton>
-          <IconButton aria-label="ver video" sx={{ borderRadius: '8px' }} onClick={() => router.push(path)}>
-            <PlayCircleIcon sx={{ marginRight: 1 }} />{' '}
-            <Typography>Comenzar</Typography>
-          </IconButton>
+          <ComenzarButton path={path}/>
         </Box>
       </Box>
-      <CardMedia
+      <Box position="relative" height="200px" sx={{
+        width: '250px',
+        '@media (max-width: 768px)': {
+          width: 'auto',
+          order: '-1',
+        }
+      }}>
+        <Image
+          src={thumbnail}
+          alt="Card image"
+          fill
+          priority
+        />
+      </Box>
+      {/* <CardMedia
         component="img"
         sx={{ width: matches ? "100%" : 250 }}
         image={thumbnail}
         alt="video thumbnail"
-      />
+      /> */}
     </Card>
   );
 }

@@ -5,23 +5,24 @@ import { Box, useMediaQuery } from '@mui/material';
 import { useState, useEffect } from 'react';
 import VideoCard from './VideoCard';
 import { useSearchParams, usePathname } from 'next/navigation';
+import { getVideos } from '@/app/video-server';
 
-export default function CoursePage() {
-  const matches = useMediaQuery('(max-width:768px)');
-  const pathName = usePathname()
-  const searchParams = useSearchParams();
+export default function CoursePage({videos, name}: {videos: CourseVideo[] | null, name: string}) {
+  // const pathName = usePathname()
+  // const searchParams = useSearchParams();
 
-  const course_id = searchParams.get('courseId');
-  const [videos, setVideos] = useState<CourseVideo[]>([]);
+  // const course_id = searchParams.get('courseId');
+  // const [videos, setVideos] = useState<CourseVideo[]>([]);
 
-  useEffect(() => {
-    async function loadData() {
-      const fetchedVideos: CourseVideo[] = await fetchVideos(course_id);
-      setVideos(fetchedVideos);
-    }
+  // useEffect(() => {
+  //   async function loadData() {
+  //     const fetchedVideos: CourseVideo[] = await fetchVideos(course_id);
+  //     setVideos(fetchedVideos);
+  //   }
 
-    loadData();
-  }, []);
+  //   loadData();
+  // }, []);
+
 
   return (
     <Box p={0}>
@@ -32,7 +33,7 @@ export default function CoursePage() {
             description={video.description}
             thumbnail={video.thumbnail}
             key={video.id}
-            path={`${pathName}/video?videoId=${video.id}`}
+            path={`/course/${name}/video?videoId=${video.id}`}
           />
         ))}
     </Box>

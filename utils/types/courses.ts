@@ -7,4 +7,5 @@ export interface Course {
     name: string;
     thumbnail: string;
     price: string;
+    courseVideos?: CourseVideo[];
   }
