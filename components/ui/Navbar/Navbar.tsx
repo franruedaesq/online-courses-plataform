@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { createServerSupabaseClient } from '@/app/supabase-server';
+import { createServerSupabaseClient, getUserDetails } from '@/app/supabase-server';
 
 import Logo from '@/components/icons/Logo';
 import SignOutButton from './SignOutButton';
@@ -11,6 +11,10 @@ export default async function Navbar() {
   const {
     data: { user }
   } = await supabase.auth.getUser();
+
+  const [userDetails] = await Promise.all([
+    getUserDetails(),
+  ]);
 
   return (
     <nav className={s.root}>
@@ -34,6 +38,7 @@ export default async function Navbar() {
               )}
             </nav>
           </div>
+          {user && (<p>Bienvenido {userDetails?.full_name}</p>)}
           <div className="flex justify-end flex-1 space-x-8">
             {user ? (
               <SignOutButton />
@@ -43,6 +48,7 @@ export default async function Navbar() {
               </Link>
             )}
           </div>
+          {}
         </div>
       </div>
     </nav>

@@ -14,6 +14,7 @@ import AulaCardVertical from './AulaCardVertical';
 import { supabaseAdmin } from '@/utils/supabase-admin';
 import { fetchCourses } from '@/utils/api/courses';
 import { Course } from '@/utils/types/courses';
+import { FacebookButton } from './FacebookButton';
 
 type Subscription = Database['public']['Tables']['subscriptions']['Row'];
 type Product = Database['public']['Tables']['products']['Row'];
@@ -50,7 +51,7 @@ export default function Pricing({
     <section className="bg-black">
       <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8 flex flex-col justify-center items-center gap-8">
         <p className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-          Aprende a modelar con <span className="text-pink-500">Procelana fría.</span>
+          Aprende a modelar con <span className="text-pink-500">Porcelana fría.</span>
         </p>
         <Button size="large" color="secondary" variant='outlined' sx={{ color: 'rgb(236, 72, 153)' }}>
           EXPLORA LAS AULAS VIRTUALES
