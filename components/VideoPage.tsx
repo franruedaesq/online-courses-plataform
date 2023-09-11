@@ -1,13 +1,14 @@
 'use client';
 
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import ReactPlayer from 'react-player';
 import { Suspense } from 'react';
 import Skeleton from '@mui/material/Skeleton';
 
 export default function VideoPage({ video }: { video: CourseVideo[] | null }) {
   return (
-    <>
+    <Box display="flex" flexDirection="column" alignItems="center">
+      <Typography fontSize="24px" mb="10px">{video?.[0]?.title}</Typography>
       <Suspense
         fallback={<Skeleton height="540px" width="100%" animation="wave" />}
       >
@@ -20,6 +21,6 @@ export default function VideoPage({ video }: { video: CourseVideo[] | null }) {
           />
         </Box>
       </Suspense>
-    </>
+    </Box>
   );
 }
