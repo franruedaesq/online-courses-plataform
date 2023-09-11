@@ -6,6 +6,9 @@ export const FacebookButton = () => {
     async function signInWithFacebook() {
         const { data, error } = await supabase.auth.signInWithOAuth({
           provider: 'facebook',
+          options: {
+            redirectTo: window.location.origin
+          }
         })
         console.log(data);
       }
