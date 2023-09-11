@@ -5,7 +5,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box, Button, CardActionArea, CardActions } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image'
+import Image from 'next/image';
+import { Suspense } from 'react';
+import Skeleton from '@mui/material/Skeleton';
 
 interface AulaCardVerticalProps {
   imageUrl: string;
@@ -17,11 +19,26 @@ interface AulaCardVerticalProps {
   videos?: CourseVideo[];
 }
 
-export default function AulaCardVertical({ imageUrl, title, price, description, url, courseId }: AulaCardVerticalProps) {
-  const router = useRouter()
+export default function AulaCardVertical({
+  imageUrl,
+  title,
+  price,
+  description,
+  url,
+  courseId
+}: AulaCardVerticalProps) {
+  const router = useRouter();
 
   return (
-    <Card sx={{ maxWidth: 345, display: "flex", flexDirection: 'column', justifyContent: 'space-between' }} onClick={() => router.push(`/course/${url}?courseId=${courseId}`)}>
+    <Card
+      sx={{
+        maxWidth: 345,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+      }}
+      onClick={() => router.push(`/course/${url}?courseId=${courseId}`)}
+    >
       <CardActionArea>
         {/* <CardMedia
           component="img"
@@ -31,12 +48,9 @@ export default function AulaCardVertical({ imageUrl, title, price, description, 
           sx={{ height: '200px' }}
         /> */}
         <Box width="100%" height="250px" position="relative">
-        <Image
-          src={imageUrl}
-          alt="Card image"
-          fill
-          priority
-        />
+          <Suspense fallback={<Skeleton height="250px"  width="100%" animation="wave"/>}>
+            <Image src={imageUrl} alt="Card image" fill />
+          </Suspense>
         </Box>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -49,7 +63,12 @@ export default function AulaCardVertical({ imageUrl, title, price, description, 
       </CardActionArea>
       <CardActions sx={{ gap: '16px', paddingX: '16px' }}>
         <Typography>${price}</Typography>
-        <Button size="small" color="secondary" variant='outlined' sx={{ color: 'rgb(236, 72, 153)' }}>
+        <Button
+          size="small"
+          color="secondary"
+          variant="outlined"
+          sx={{ color: 'rgb(236, 72, 153)' }}
+        >
           Comprar
         </Button>
       </CardActions>
