@@ -12,6 +12,8 @@ import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 import { ComenzarButton } from './ComenzarButton';
+import { Suspense } from 'react';
+import Skeleton from '@mui/material/Skeleton';
 
 interface VideoCardProp {
   title: string;
@@ -70,12 +72,14 @@ export default function VideoCard({
           order: '-1',
         }
       }}>
+        <Suspense fallback={<Skeleton height="200px"  width="100%" animation="wave"/>}>
         <Image
           src={thumbnail}
           alt="Card image"
           fill
           priority
         />
+        </Suspense>
       </Box>
       {/* <CardMedia
         component="img"
